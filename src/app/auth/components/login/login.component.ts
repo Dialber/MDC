@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { LoginService } from '../../services/login.service';
+import { Login } from '../../interfaces/login';
+import { FileComponent } from '../shared/file/file.component';
 
 @Component({
   selector: 'app-login',
@@ -8,10 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  names:string[]=["correo","password"];
-  constructor() { }
+  names:string[]=["email","password"];
+  
+  constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
+  }
+
+  @ViewChildren(FileComponent) hijos!: QueryList<FileComponent>;
+
+  public Login():void{
+
+    let email=this.hijos.toArray()[0].modelInput;
+    let password=this.hijos.toArray()[1].modelInput;
+      
+    let milogin:Login={
+      email:email,
+      password:password
+    }
+    
+    this.loginService.Login(milogin).subscribe(data=>
+      console.log(data)
+      );
   }
 
 }

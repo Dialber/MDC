@@ -1,9 +1,18 @@
 :host{
+    &:first-of-type{
+        margin-bottom: 1.5rem;
+    }
     display: block;
-    margin-bottom: 1.5rem;
     display: flex;
+    flex-direction: column;
 }
 .file{
+    margin-bottom: .6rem;
     flex: 1 1;
-    text-transform: capitalize;
+}
+[type="email"],[type="password"]{
+    background-color: transparent;
+    border: 0 ;
+    border-bottom:.1rem solid black;
+   
 }

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  _http:"http://localhost:3000/auth"
 };

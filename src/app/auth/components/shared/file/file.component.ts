@@ -8,11 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class FileComponent implements OnInit {
 
   
-  @Input() value:string | undefined;
+  @Input() value:string ="";
+  
+ 
+  modelInput:string ="";
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   }
-
 }

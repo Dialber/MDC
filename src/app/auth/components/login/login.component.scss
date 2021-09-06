@@ -1,14 +1,55 @@
 :host{
-    min-width: 18rem;
-    max-width: 24rem;
-    background-color: burlywood;
+    max-width: 22rem;
+    background-color: white;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem;
+    margin-top: 3rem;
+    padding: 2rem 3rem;
+    border-radius: 3rem;
+}
+.split{
+    width: 100%;
+    margin: 2rem auto;
+    text-align: center;
+    position: relative;
+    &::before,&::after{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 2rem;
+        height: .1rem;
+        background-color: black;
+    }
+    &::before{
+        left: 0;
+        top: 48%;
+    }
+    &::after{
+        right: 0;
+        top: 48%;
+    }
+}
+    
+
+.header__head{
+    text-align: left;
+}
+.header__link{
+    padding: .5rem 2rem;
+    border: .1rem solid black;
+    border-radius: 1rem;
+    font-size: .9rem;    
+    display: inline-block;
+    &::before{
+        margin-right: 1rem;
+        font-size: 1.2rem;
+    }
+    &:hover{
+        box-shadow: 0 .1rem .05rem .05rem black;
+    }
 }
 .buttons{
-    width: 100%;
     margin-right: auto;
     margin-left: auto;
     display: flex;
@@ -16,4 +57,24 @@
 }
 .buttons__item{
     text-transform: capitalize;
+    display: inline-block;
+    width: 100%;
+    border-radius: 1.5rem;
+    background-color: blue;
+    line-height: 2;
+    cursor: pointer;
+    &:hover{
+        background-color: lighten(blue, 10%);
+    }
+    &:active{
+        transform: scale(95%);        
+    }
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.forgot{
+    text-align: right;
+    margin-bottom: 2.5rem;
 }

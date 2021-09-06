@@ -1,2 +1,2 @@
-<label class="file" for="id-input">{{value}}</label>
-<input class="file" type="text" name="" id="id-input" [placeholder]="value">
+<label class="file" [for]="value">{{value}}</label>
+<input class="file" [type]="value" name="" [id]="value" [placeholder]="value" [(ngModel)]="modelInput">

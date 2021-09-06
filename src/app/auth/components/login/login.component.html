@@ -1,8 +1,10 @@
-<form action="">
+<header class="header">
+    <h2 class="header__head">Login</h2>
+    <a class="header__link bi bi-google" href="">Login with google</a>
+    <p for="" class="split">With google or email?</p>
+</header>
+<div action="" class="form" >
     <app-file *ngFor="let item of names "[value]="item"></app-file>
-    <div class="buttons">
-        <input class="buttons__item" type="button" value="Cancelar">
-        <input class="buttons__item" type="submit" value="Aceptar">
-    </div>
-
-</form>
+    <a href="" class="forgot">forgot?</a>
+    <input class="buttons__item" type="submit" value="Loguin" (click)="Login()">   
+</div>
