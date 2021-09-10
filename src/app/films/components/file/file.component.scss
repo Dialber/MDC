@@ -1,0 +1,32 @@
+@import '../../../../styles/variables';
+:host{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 2rem;
+}
+.director,.clasif,.nombre{
+    margin: 0;
+    padding: 1rem 0;
+    flex: 1 1;
+}
+.clasif{
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    background: linear-gradient(to left,red 50%, green 50%);
+}
+
+.header{
+    height: 12rem;
+    background: url('../../../../assets/Bullet.jpg') no-repeat 0 0/ cover border-box;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+.container{
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    background-color: $color-white;
+}

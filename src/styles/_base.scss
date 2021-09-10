@@ -80,6 +80,9 @@ textarea{
     
     line-height:$line-height;
 }
+li{
+    list-style: none;
+}
 
 @media #{$landscape-phones}{
     html, body{

@@ -1,0 +1,48 @@
+@import '../../../../styles/variables';
+.list{
+    margin: 0;
+    padding: 1rem;
+    display: flex;    
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.list__item{
+    width: 80%;
+    background-color: darkkhaki;
+    margin-bottom: 1.5rem;
+    border-radius: 2rem;
+}
+@media #{$phones}{
+    .list__item{
+        width: 45%;
+    }
+}
+@media  #{$landscape-phones}{
+    .list__item{
+       
+    }
+   
+}
+
+@media  #{$tablets}{
+    .list__item{
+       /*  width: 28%; */
+    }
+  
+}
+@media  #{$desktops}{
+    .list__item{
+        width: 30%;
+    }
+   
+}
+@media  #{$large-desktops}{
+   
+}
+@media  #{$extra-large-desktops}{
+    
+}
+@media  #{$four-k}{
+   
+}

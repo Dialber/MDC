@@ -2,6 +2,8 @@ import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { Login } from '../../interfaces/login';
 import { FileComponent } from '../shared/file/file.component';
+import { AuthjwtService } from '../../services/authjwt.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +14,9 @@ import { FileComponent } from '../shared/file/file.component';
 export class LoginComponent implements OnInit {
 
   names:string[]=["email","password"];
+  error:boolean=false;
   
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService,private authjwtService:AuthjwtService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -31,8 +34,9 @@ export class LoginComponent implements OnInit {
     }
     
     this.loginService.Login(milogin).subscribe(data=>
-      console.log(data)
+      this.authjwtService.Loginn(data.access_token)
       );
+      void this.router.navigateByUrl("/peliculas");
   }
 
 }
