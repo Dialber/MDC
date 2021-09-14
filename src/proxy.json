@@ -1,0 +1,8 @@
+{
+   "peliculas/*":{
+       "target":"http://www.omdbapi.com/",
+       "secure":false,
+       "logLevel":"debug",
+       "changeOrigin":true
+   }
+}

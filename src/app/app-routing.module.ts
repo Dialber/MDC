@@ -7,7 +7,6 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   {
     path: 'peliculas', 
-    canActivate:[FilmsGuard],
     loadChildren: () => import('./films/films.module').then(m => m.FilmsModule)
   },
 ];

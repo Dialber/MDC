@@ -4,6 +4,7 @@ import { FilmsRoutingModule } from './films-routing.module';
 import { MainComponent } from './components/main/main.component';
 import { FileComponent } from './components/file/file.component';
 import { FilmsComponent } from './components/films/films.component';
+import { StartsComponent } from './components/starts/starts.component';
 
 
 
@@ -11,7 +12,8 @@ import { FilmsComponent } from './components/films/films.component';
   declarations: [
     MainComponent,
     FilmsComponent,
-    FileComponent
+    FileComponent,
+    StartsComponent
   ],
   imports: [
     CommonModule,

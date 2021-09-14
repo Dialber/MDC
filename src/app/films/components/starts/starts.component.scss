@@ -1,0 +1,44 @@
+.listStart{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    width: 50%;
+    border-radius: 1.8rem;
+    background-color: azure;
+    li{
+        padding: .5rem;
+    }
+}
+.bi-star,.bi-star-fill{
+    font-size: 2rem;
+}
+.bi-star-fill{
+    color: yellow;
+}
+
+.bi-star{
+    &:hover{
+        color: yellow;        
+        transform: scale(1.2);
+        transition: transform .3s ease-in;
+    
+    }
+}
+
+[type=checkbox]{
+    width: 0;
+    height: 0;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.yellow{
+    color: yellow;
+}
+.red{
+    color: red;
+
+}

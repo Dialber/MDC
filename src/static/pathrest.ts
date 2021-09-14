@@ -3,5 +3,6 @@ export class PathRest{
 
     static readonly RESTLOGIN=environment._http + "auth/login";
     static readonly RESTfilms=environment._http + "peliculas";
+    static readonly API_OMDB=environment._omdb ;
 
 }

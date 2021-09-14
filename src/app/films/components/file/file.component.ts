@@ -8,19 +8,22 @@ import { Film } from '../../interfaces/film';
 })
 export class FileComponent implements OnInit {
 
-  
-  @Input()element :Film=<Film>{};
+/*   
+  @Input()element :Film=<Film>{}; */
 
-  nombre:string="";
-  director:string="";
-  clasif:string="";
+  @Input()element :any=<any>{};
+
+  Title:string="";
+  Year:string="";
+  Released:string="";
+ /*  "Title":"Black Panther","Year":"2018" */
 
   constructor() { }
 
   ngOnInit(): void {    
-  this.nombre=this.element.nombre;
-  this.director=this.element.director;
-  this.clasif=this.element.clasificacion;
+  this.Title=this.element.Title;
+  this.Year=this.element.Year;
+  this.Released=this.element.Released;
 
   }
 

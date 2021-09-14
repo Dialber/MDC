@@ -76,8 +76,12 @@
             "production": {
               "browserTarget": "Study:build:production"
             },
+            "options":{
+              "proxyConfig": "src/proxy.json"
+            },
             "development": {
-              "browserTarget": "Study:build:development"
+              "browserTarget": "Study:build:development",
+              "proxyConfig": "src/proxy.json"
             }
           },
           "defaultConfiguration": "development"

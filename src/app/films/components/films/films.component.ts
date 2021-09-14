@@ -9,7 +9,15 @@ import { Film } from '../../interfaces/film';
 })
 export class FilmsComponent implements OnInit,OnDestroy {
 
-  list:Film[]=[];
+  list:any[]=[];
+
+  listMarvel:string[]=["Black Panther","Iron Man","Avengers:Endgame","Guardianes de la galaxia",
+                      "Capitan America:Civil War","Thor:Ragnarok","Spider-Man:Homecoming","Doctor Strange",
+                      "Capitan America:El soldado de invierno","Ant-Man y la Avispa"];
+
+  listDC:string[]=["Hombre de acero","Escuadron suicida","Liga de la justicia",
+                  "Batman vs Super Man:El amanecer de la justicia","Aves de presa",
+                  "Wonder Woman","Wonder Woman 1984","Aquaman","Shazam","El escuadron suicida"];
   
   constructor( private loginService: LoginService) { }
   ngOnDestroy(): void {
@@ -17,9 +25,12 @@ export class FilmsComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loginService.Films().subscribe(data=>{
+    /* this.loginService.Films().subscribe(data=>{
       this.list=data;
-    })
+    }) */
+   this.loginService.Get().subscribe(data=>{
+     this.list=data;
+   })
   }
 
 }

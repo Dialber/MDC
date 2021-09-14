@@ -5,7 +5,6 @@ import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
   { 
-    canActivate:[FilmsGuard],
     path: '', component: MainComponent
   }
 ];

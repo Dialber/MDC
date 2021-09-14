@@ -33,9 +33,9 @@ export class LoginComponent implements OnInit {
       password:password
     }
     
-    this.loginService.Login(milogin).subscribe(data=>
+   /*  this.loginService.Login(milogin).subscribe(data=>
       this.authjwtService.Loginn(data.access_token)
-      );
+      ); */
       void this.router.navigateByUrl("/peliculas");
   }
 
