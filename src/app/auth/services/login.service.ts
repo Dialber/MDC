@@ -13,7 +13,8 @@ export class LoginService {
   /* private _http = PathRest.RESTLOGIN;
   private _films = PathRest.RESTfilms; */
   private _films = PathRest.API_OMDB; 
-  private _nameFilm:string="Black+Panther";
+
+  private _idFilm:string="tt1825683";
   private _apikey:string="&apikey=48c954a3";
 
   constructor(private httpclient:HttpClient) { }
@@ -25,9 +26,7 @@ export class LoginService {
     return this.httpclient.get<Film[]>(this._films);
   } */
 
-  public Get():Observable<any>{
-    console.log("************Peticion************"+this.httpclient.get<any>(this._films+this._nameFilm));
-    
-    return this.httpclient.get<any>(this._films+this._nameFilm+this._apikey);
+  public Get(id:string):Observable<any>{
+    return this.httpclient.get<any>(this._films+id+this._apikey);
   }
 }

@@ -16,6 +16,8 @@ export class FileComponent implements OnInit {
   Title:string="";
   Year:string="";
   Released:string="";
+  Poster:string="";
+  Runtime:string="";
  /*  "Title":"Black Panther","Year":"2018" */
 
   constructor() { }
@@ -24,7 +26,9 @@ export class FileComponent implements OnInit {
   this.Title=this.element.Title;
   this.Year=this.element.Year;
   this.Released=this.element.Released;
-
+  this.Poster=this.element.Poster;
+  this.Runtime=this.element.Runtime;
+  
   }
 
 }

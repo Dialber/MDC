@@ -1,8 +1,16 @@
-<header class="header">
-</header>
+
+<img src="" class="header" alt="" [src]="Poster">
 <div class="container">
     <h3 class="nombre">{{Title}}</h3>
-    <p class="director">{{Year}}</p>
-    <p class="clasif">{{Released}}</p>
+    <div class="data">
+        <div class="data1">
+            <p class="year">Year</p>
+            <p class="year2">{{Year}}</p>
+        </div>
+        <div class="data2">
+            <p class="runtime">Runtime</p>
+            <p class="runtime2">{{Runtime}}</p>
+        </div>
+    </div>
 </div>
-
+<app-starts></app-starts>

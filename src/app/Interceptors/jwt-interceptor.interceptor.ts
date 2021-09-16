@@ -37,14 +37,14 @@ export class JwtInterceptorInterceptor implements HttpInterceptor {
   ErrorHandler(error:HttpErrorResponse):Observable<never>{
     if(error instanceof HttpErrorResponse){
       if(error.error instanceof ErrorEvent){
-        alert("Error de cliente")
+       /*  alert("Error de cliente") */
       }
       else{
         if(error.status===401){
-          alert("no tiene permisos")
+       /*    alert("no tiene permisos") */
         }
         else{
-          alert("Error de servidor")
+          /* alert("Error de servidor") */
         }
       }
     }
