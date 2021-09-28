@@ -1,7 +1,92 @@
+@import '../../../../styles/variables';
 :host{
     display: block;
     width: 100%;
-    border-radius: 2rem;
+    border-radius: 2rem;    
+    opacity: .9;
+    overflow: hidden;
+    margin-top: 2rem;
 }
-app-films{
+.hide{
+    display: none;
+}
+app-message{
+    position: absolute;
+    top:5rem;
+    right: 5rem;
+}
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alert{
+    position: absolute;
+    background-color: green;
+    color: black;
+    padding: 3rem;
+    font-size: 2rem;    
+    top: -10rem;
+    transform: translateX(20rem);
+    transition: transform 3s ease;
+    opacity: 0;
+    visibility: hidden;
+    
+}
+.moveAlert{
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+}
+app-message{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.text{
+    text-align: left;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(green, 80%);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    &::after{
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background: url(../../../../assets/marvel.png) 0 0 / 40% auto no-repeat,url(../../../../assets/dc.png) 100% 100%/ 40% auto no-repeat;
+    }
+    
+    color: white;
+  
+
+}
+.vote{
+    background-color: green;
+    padding: .6rem 3rem;
+    border-radius: 2rem;
+    border-width:0 ;
+    color: white;
+    font-size: 1.2rem;
+    &:hover,&:focus{
+        background-color: darken($color: green, $amount: 10%);
+    }
+    &:active{
+        transform: scale(.98);
+    }
+    &:disabled{
+        opacity: 40%;
+    }
+}
+@media #{$tablets}{
+   .text{
+       width: 85%;
+   }
 }

@@ -27,8 +27,10 @@ export class FilmsListService {
 
   /********************************lOS QUE ESTOY USANDO PARA HACER LA PETICION A OMDB*********************************/
   listDC_id:string[]=["tt12361974","tt6334354","tt0451279","tt0770828","tt1477834"];
+  listUrlLocalImagesDC_films:string[]=["assets/png/League.png","assets/png/Squad.png","assets/png/Woman.png","assets/png/Steel.png","assets/png/aquaman.png"];
 
   listMarvel_id:string[]=["tt0848228","tt4154756","tt2250912","tt4154796","tt1825683"];
+  listUrlLocalImagesMarvel_films:string[]=["assets/png/Avengers.png","assets/png/Infinity.png","assets/png/Spider.png","assets/png/Endgame.png","assets/png/Panther.png"];
 
 
   constructor() { }

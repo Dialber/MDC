@@ -7,45 +7,31 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { LocalStorageJWT } from 'src/static/localStorage';
-import { Router } from '@angular/router';
+import { catchError, finalize } from 'rxjs/operators';
+import { MessageService } from 'app/shared/services/message.service';
+import { SpinnerService } from 'app/shared/services/spinner.service';
+import { PathRest } from '@path/pathrest';
 
 @Injectable()
 export class JwtInterceptorInterceptor implements HttpInterceptor {
 
-  constructor(private router:Router) {}
+  constructor(private messageService:MessageService,private spinnerService:SpinnerService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {    
-    
-    var token=localStorage.getItem(LocalStorageJWT.LS_ACCESS_TOKEN);
-    if(token != null){
-      const req=request.clone(
-        {
-        headers:request.headers.set('Authorization',`Bearer ${token}`)
-        }
-      );
-      return next.handle(req).pipe(
-        catchError(error=>this.ErrorHandler(error))
-      );
-    } 
+
+    this.spinnerService.setValue(true);
     return next.handle(request).pipe(
-      catchError(error=>this.ErrorHandler(error))
+      catchError(error=>this.ErrorHandler(error)),
+      finalize(()=>this.spinnerService.setValue(false))
     );
-    
   }
   ErrorHandler(error:HttpErrorResponse):Observable<never>{
     if(error instanceof HttpErrorResponse){
       if(error.error instanceof ErrorEvent){
-       /*  alert("Error de cliente") */
+        alert("Error de cliente")
       }
       else{
-        if(error.status===401){
-       /*    alert("no tiene permisos") */
-        }
-        else{
-          /* alert("Error de servidor") */
-        }
+        this.messageService.Message(error.status)
       }
     }
     else{
@@ -54,3 +40,4 @@ export class JwtInterceptorInterceptor implements HttpInterceptor {
     return throwError(error)
   }
 }
+

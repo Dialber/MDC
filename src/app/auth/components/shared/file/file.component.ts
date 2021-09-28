@@ -6,8 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./file.component.scss']
 })
 export class FileComponent implements OnInit {
-
-  
+ 
   @Input() value:string ="";
   
  

@@ -1,0 +1,45 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: calc(50VW - 4rem);
+    bottom: 30vh;
+    z-index: 1000;
+}
+.text{
+    font-size:1.5rem;
+    color: black;
+    font-weight: 200;
+}
+.lds-ripple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: .4rem solid green;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 1;
+      border-color: green;
+    }
+    100% {
+      width: 8rem;
+      height: 8rem;
+      opacity: 0;
+      border-color: black;
+    }
+  }

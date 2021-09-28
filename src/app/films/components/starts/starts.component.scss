@@ -11,7 +11,10 @@
    
 }
 .listStart__li{
-    margin:0 .1rem;
+    margin:0 .2rem;
+}
+.bi{
+    cursor: pointer;
 }
 .bi-star,.bi-star-fill{
     font-size: 1.7rem;
@@ -19,28 +22,16 @@
 .bi-star-fill{
     color: yellow;
 }
+.voted{
+    cursor: auto;
+}
 
 .bi-star{
     &:hover{
-        color: yellow; 
         transform: scale(1.2);
         transition: transform .3s ease-in;
-    
     }
-}
-
-[type=checkbox]{
-    width: 0;
-    height: 0;
-    margin: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .yellow{
     color: yellow;
-}
-.red{
-    color: red;
-
 }

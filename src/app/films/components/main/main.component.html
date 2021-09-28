@@ -1,2 +1,14 @@
-<app-films [listaF]="listaDC"></app-films>
-<app-films [listaF]="listaMA"></app-films>
+<div class="text">
+    <p>Marvel vs. DC es el eterno debate de los forofos del cómic y el enfrentamiento entre los fans de ambas compañías. Realmente, la gente cada vez es más fan de los superhéroes, llegando a diferenciar actualmente entre personajes de Marvel y personajes de DC.</p>
+    <p>Unos dicen que DC es mejor porque es pionera y que Marvel no es más que una copia continuada de plagios a sus personajes. O simplemente porque sus películas son más realistas y oscuras. Del mismo modo, los hay que defienden a Marvel porque sus historias siempre trataron de representar a los superhéroes de la forma más humana posible.</p>
+    <H1>{{h1}}</H1>
+</div>
+<app-loader *ngIf="showSpinner"></app-loader>
+<app-films [lista_idToRequest]="listaDC_id" [listUrlImagenesLocal]="listUrlImagenesLocal_DC"></app-films>
+<app-films [lista_idToRequest]="listaMA_id" [listUrlImagenesLocal]="listUrlImagenesLocal_MA"></app-films>
+<div class="container">
+    <p class="alert" #alert [ngClass]="{moveAlert: showAlert}">{{message}}</p>
+    <button (click)="AddVote()" [disabled]="voted" class="vote" [ngClass]="{}">Votar</button>
+</div>
+<app-message *ngIf="error"></app-message>
+ 

@@ -1,24 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss']
 })
-export class MessageComponent implements OnInit {
+export class MessageComponent implements OnInit,AfterViewChecked,OnDestroy{
    message:string="";
-   error:boolean=false;
+   show:boolean=false;
 
-  constructor() { }
+   private subscription:Subscription=new Subscription();
 
-  ngOnInit(): void {
+  constructor(private messageService:MessageService) { }
+  ngOnDestroy(): void {
+   this.subscription.unsubscribe();
   }
-  public Set(): void{
-    this.error=true;
-    setTimeout(() => {
-      this.error=false;
-    }, 3000);
+  ngAfterViewChecked(): void {
     
   }
 
+  showMessage(data:number):void{
+    console.log(data);
+    
+    if(data==0){
+      this.message="No se pudo conectar al servidor.";
+    }
+    if(data==401){
+      this.message="Usted no tiene permisos"
+    }
+    if(data>=500 && data<=599){
+      this.message=`Error de serivor+ ${data}`;
+    }
+  
+  }
+
+  ngOnInit(): void {
+    this.subscription=this.messageService.getSubject().subscribe(data=>{
+      this.showMessage(data);
+    });
+  }
+
+ 
 }

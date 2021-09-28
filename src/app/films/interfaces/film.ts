@@ -1,8 +1,9 @@
 export interface Film {
-    id:number;
-    nombre:string;
-    director:string;
-    clasificacion:string;
+    id?:number;
+    Title:string;
+    director?:string;
+    clasificacion?:string;
+    stars:number[];
 }
 /* {
     "id": 1,

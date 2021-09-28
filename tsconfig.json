@@ -2,8 +2,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
+    "paths":{
+      "@path/*":["static/*"]
+    },
+    "outDir": "./dist/out-tsc",    
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,

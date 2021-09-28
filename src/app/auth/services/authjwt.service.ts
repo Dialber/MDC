@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageJWT } from 'src/static/localStorage';
+import { LocalStorageJWT } from '../../../static/localStorage';
 import jwtDecode from 'jwt-decode';
 
 @Injectable({

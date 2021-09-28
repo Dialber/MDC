@@ -34,18 +34,22 @@ $extra-large-desktops:"(min-width:110rem)";// 1760px and up)
 $four-k:"(min-width:160rem)";//4k...1760px and up
 
 /*tamaños base*/
-$font-h1:4.598rem;
-$font-h1-small:3.598rem;
-$font-h2:2.143rem;
-$font-h3:1.473rem;
+$font-h1:2rem;
+$font-h1-small:1.9rem;
+$font-h2:1.7rem;
+$font-h3:1.5rem;
 $font-h4:1.1rem;
 $font-p:1.05rem;
 $font-a:1.116rem;
 $font-span:1.25rem;
 $font-btn:1.033rem;
 $line-height:1.5rem;
-$letter-spacing:0.008rem;
+$letter-spacing:0.05rem;
 $word-spacing: 0.1rem; 
+
+/*
+font-family: 'Montserrat', sans-serif;
+*/
 /* 
 @media #{$phones}{
 

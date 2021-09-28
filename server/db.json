@@ -1,0 +1,61 @@
+{
+  "films": [
+    {
+      "stars": [
+        3,
+        4,
+        5,
+        1,
+        3,
+        3
+      ],
+      "nombre": "Wonder Woman",
+      "id": 1
+    },
+    {
+      "stars": [],
+      "nombre": "Aquaman",
+      "id": 2
+    },
+    {
+      "stars": [],
+      "nombre": "Man of Steel",
+      "id": 3
+    },
+    {
+      "stars": [],
+      "nombre": "The Suicide Squad",
+      "id": 4
+    },
+    {
+      "stars": [],
+      "nombre": "Zack Snyder's Justice League",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "nombre": "The Avengers",
+      "stars": []
+    },
+    {
+      "stars": [],
+      "nombre": "Avengers: Infinity War",
+      "id": 7
+    },
+    {
+      "stars": [],
+      "nombre": "Spider-Man: Homecoming",
+      "id": 8
+    },
+    {
+      "stars": [],
+      "nombre": "Avengers: Endgame",
+      "id": 9
+    },
+    {
+      "stars": [],
+      "nombre": "Black Panther",
+      "id": 10
+    }
+  ]
+}
