@@ -33,12 +33,12 @@ export class FilmsComponent implements OnInit,OnDestroy,AfterViewChecked,DoCheck
    
   }
   ngAfterViewChecked(): void {
-    
+    /* 
      if(this.listFilmsResponseToShow.length==0){
       for (let index = 0; index < 5; index++) {
         this.listFilmsResponseToShow.push(this.film);
       }
-    } 
+    }  */
     
     if(this.listFilmsResponseToShow.length!=0){
       this.AddFigure();

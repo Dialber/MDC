@@ -76,12 +76,9 @@
             "production": {
               "browserTarget": "Study:build:production"
             },
-            "options":{
-              "proxyConfig": "src/proxy.json"
-            },
+            "options": {},
             "development": {
-              "browserTarget": "Study:build:development",
-              "proxyConfig": "src/proxy.json"
+              "browserTarget": "Study:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -109,6 +106,10 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

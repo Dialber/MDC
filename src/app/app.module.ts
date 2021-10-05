@@ -7,6 +7,8 @@ import { AuthModule } from './auth/auth.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptorInterceptor } from './Interceptors/jwt-interceptor.interceptor';
 import { FilmsModule } from './films/films.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -14,10 +16,12 @@ import { FilmsModule } from './films/films.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
-    FilmsModule
+    FilmsModule,
+    NgxChartsModule
   ],
   providers: [
     {

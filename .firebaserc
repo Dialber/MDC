@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "madc-60624": {
+      "hosting": {
+        "Study": [
+          "madc-60624"
+        ]
+      }
+    }
+  }
+}

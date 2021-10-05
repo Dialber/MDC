@@ -4,6 +4,7 @@
     <H1>{{h1}}</H1>
 </div>
 <app-loader *ngIf="showSpinner"></app-loader>
+<app-barchart></app-barchart>
 <app-films [lista_idToRequest]="listaDC_id" [listUrlImagenesLocal]="listUrlImagenesLocal_DC"></app-films>
 <app-films [lista_idToRequest]="listaMA_id" [listUrlImagenesLocal]="listUrlImagenesLocal_MA"></app-films>
 <div class="container">

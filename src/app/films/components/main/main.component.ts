@@ -1,4 +1,5 @@
 import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { PathRest } from '@path/pathrest';
 import { StopVoteService } from 'app/films/services/stop-vote.service';
 import { LoaderComponent } from 'app/shared/loader/loader.component';
 import { MessageService } from 'app/shared/services/message.service';
@@ -28,8 +29,10 @@ export class MainComponent implements OnInit,OnDestroy,AfterViewChecked {
   
   message:string="Usted ha votado";
 
-  constructor( private filmsListService:FilmsListService,private stopVoteService:StopVoteService,private spinnerService:SpinnerService,private chanceDetector:ChangeDetectorRef,private messageService:MessageService) { 
+  constructor( private filmsListService:FilmsListService,private stopVoteService:StopVoteService,private spinnerService:SpinnerService,private chanceDetector:ChangeDetectorRef,private messageService:MessageService) 
+  { 
  /*    this.showSpinner=false; */
+     
   }
   ngAfterViewChecked(): void {
    this.chanceDetector.detectChanges();
@@ -39,6 +42,11 @@ export class MainComponent implements OnInit,OnDestroy,AfterViewChecked {
     this.subscription.unsubscribe();
     this.subscriptionError.unsubscribe();
   }
+
+  
+  
+    
+  /*back*/
 
   listaDC_id:string[]=this.filmsListService.listDC_id;
   listaMA_id:string[]=this.filmsListService.listMarvel_id;
@@ -62,7 +70,7 @@ export class MainComponent implements OnInit,OnDestroy,AfterViewChecked {
     })
   }
   
-  AddVote():void{
+  AddVote(){
     this.childs.forEach(element => {
       element.SendStarsAllChilds();
     });
