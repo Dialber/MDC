@@ -1,39 +1,23 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { StarService } from './stars.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GraficService {
-    single =[
-    {
-      "name": "Germany",
-      "value": 40632
-    },
-    {
-      "name": "United States",
-      "value": 50000
-    },
-    {
-      "name": "France",
-      "value": 36745
-    },
-    {
-      "name": "United Kingdom",
-      "value": 36240
-    },
-    {
-      "name": "Spain",
-      "value": 33000
-    },
-    {
-      "name": "Italy",
-      "value": 35800
-    }
-  ];
+   
+  mysubject=new BehaviorSubject<boolean>(false);
 
-  constructor(private starService:StarService) { 
-    /* this.single=starService.GetAllFilms() */
+  constructor() { 
+    
+  }
+  getSubject():Observable<boolean>{
+    return this.mysubject.asObservable();
+  }
+
+  changeGrafic(change:boolean){
+    this.mysubject.next(change);
   }
 
 

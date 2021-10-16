@@ -16,6 +16,10 @@ export class FilmsComponent implements OnInit,OnDestroy,AfterViewChecked,DoCheck
   @Input()lista_idToRequest!:string[];
 
   @ViewChildren('film') imgToChangeUrlNewImage!:QueryList<ElementRef>;  
+
+  /**Lista de componentes que contienes los filmes en este caso la lista debe tener 5 componentes 
+   * en caso de que la lista sea cargada completamente
+  */
   @ViewChildren(FileComponent) filmsChilds!:QueryList<FileComponent>;  
   
 
@@ -87,15 +91,12 @@ export class FilmsComponent implements OnInit,OnDestroy,AfterViewChecked,DoCheck
       })
     });
   }
-  SendStarsAllChilds():void{
+  SendStarsAllChilds(){
     this.filmsChilds.forEach(element => {
-     element.SendStarsFilms();
+    element.SendStarsFilms();
    });
   }
   ngOnDestroy(): void {
    
   }
-
-
-
 }

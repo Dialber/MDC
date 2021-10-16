@@ -6,6 +6,7 @@ import { MessageService } from 'app/shared/services/message.service';
 import { SpinnerService } from 'app/shared/services/spinner.service';
 import { Subscription } from 'rxjs';
 import { FilmsListService } from '../../services/films-list.service';
+import { BarchartComponent } from '../barchart/barchart.component';
 import { FilmsComponent } from '../films/films.component';
 
 @Component({
@@ -15,24 +16,25 @@ import { FilmsComponent } from '../films/films.component';
 })
 export class MainComponent implements OnInit,OnDestroy,AfterViewChecked {
 
+  /*utiliso la variable (voted),cuando la persona ya votó ,cambio su valor a (true) y notifco al 
+  hijo para volver a llenar la grafica en el ngOnchanges,tambien uso esta variable(voted)  para desabilitar 
+  el votón de votar */
   voted:boolean=false;
   showAlert:boolean=false;
   showSpinner!:boolean;
   private subscription!:Subscription;
   private subscriptionError!:Subscription;
   error:boolean=false;
-  hideBotoomAddVote:boolean=false;
   h1:string="¿Cuál prefieres tú?";
 
+  /*componentes hijos (son dos componentes---uno con la lista de los filmes de la marvel y 
+    otro de DC comics )*/
   @ViewChildren(FilmsComponent) childs!:QueryList<FilmsComponent>;
-
-  
+  @ViewChild(BarchartComponent) grafic!: BarchartComponent;
   message:string="Usted ha votado";
 
   constructor( private filmsListService:FilmsListService,private stopVoteService:StopVoteService,private spinnerService:SpinnerService,private chanceDetector:ChangeDetectorRef,private messageService:MessageService) 
   { 
- /*    this.showSpinner=false; */
-     
   }
   ngAfterViewChecked(): void {
    this.chanceDetector.detectChanges();
@@ -61,7 +63,6 @@ export class MainComponent implements OnInit,OnDestroy,AfterViewChecked {
     this.subscriptionError= this.messageService.getSubject().subscribe(data=>{
       if(data!=1){
         this.error=true;
-        this.hideBotoomAddVote=true;
         setTimeout(() => {
           this.error=false;
         }, 3000);
@@ -70,14 +71,18 @@ export class MainComponent implements OnInit,OnDestroy,AfterViewChecked {
     })
   }
   
-  AddVote(){
-    this.childs.forEach(element => {
-      element.SendStarsAllChilds();
-    });
+  /**Adicionar voto */
+  public AddVote(){
+    for (let index = 0; index < this.childs.length; index++) {
+      this.childs.get(index)?.SendStarsAllChilds();
+    }
     this.voted=true;
     this.stopVoteService.ChanceState(true);    
-    this.ShowAlert();
+    this.ShowAlert();        
+ 
+  
   }
+  /**Notificación de voto */
   ShowAlert():void{
     this.showAlert=true;
       setTimeout(() => {

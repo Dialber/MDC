@@ -14,7 +14,7 @@ export class FileComponent implements OnInit {
 /*   
   @Input()element :Film=<Film>{}; */
 
-  @Input()element :any=<any>{};
+  @Input() element :any;
   @ViewChild(StartsComponent) containerStars!:StartsComponent;
 
   Title:string="";
@@ -23,12 +23,15 @@ export class FileComponent implements OnInit {
   Poster:string="";
   Runtime:string="";
   /*Las estrellas las recojo desde el método GetStars() ,vienen desde un eventEmiter*/
-  starss:number[]=[];
+  starss:number[];
   id:string="";
   allStarst:number[]=[];
   
 
-  constructor(private starService:StarService) { }
+  constructor(private starService:StarService) { 
+   
+    this.starss=[];
+  }
   
 
   ngOnInit(): void {    
@@ -40,63 +43,53 @@ export class FileComponent implements OnInit {
   this.id=this.Addid(this.Title);
   }
 
-   async SendStarsFilms(){
+  public async SendStarsFilms(){  
     if(this.starss.length!=0){ 
-        const result = await this.starService.GetById(this.id);
-        this.allStarst=[...result,...this.starss];
-        this.starService.SendStar(this.id,this.allStarst);
+      this.starService.SendStar(this.id,this.Title,this.starss);
     }
   }
- /*  public SendStarsFilms():void{
-    if(this.starss.length!=0){
-      this.starService.GetById(this.id).subscribe((data)=>{
-        this.allStarst=[...data.stars,...this.starss];
-        this.starService.SendStar(this.id,this.Title,this.allStarst); 
-      })
-     
-    }
-  } */
+
   public Addid(Title:string):string{
     let id:string="";
     switch (Title) {
       case "Wonder Woman":
-        id="t6rUgQMbEz";
+        id="AgyCfTWsWm";
         break;
     
       case "Aquaman":
-        id="ChI7Roj4wE";
+        id="kiZT9vk2Ry";
         break;
     
       case "Man of Steel":
-        id="9gPA7UqBo3";
+        id="MGWfkMnQ1B";
         break;
     
       case "The Suicide Squad":
-        id="GYanGHBdjS";
+        id="qPxZCLMgCj";
         break;
     
       case "Zack Snyder's Justice League":
-        id="OL72q8hTs0";
+        id="azkTxmvQFE";
         break;
     
       case "The Avengers":
-        id="HWfidnRvoV";
+        id="RVNJyEiwjl";
         break;
     
       case "Avengers: Infinity War":
-        id="2Xdrc2SGnE";
+        id="CY2vCTSBHD";
         break;
     
       case "Spider-Man: Homecoming":
-        id="6ovHdADhDV";
+        id="PfLaVm0D22";
         break;
 
       case "Avengers: Endgame":
-        id="cHo6BWofEh";
+        id="6OGeXHqXHC";
         break;
 
       case "Black Panther":
-        id="6jJXBnlgmF"
+        id="6erXRzjCDs"
         break;
     
       default:

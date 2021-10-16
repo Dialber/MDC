@@ -1,74 +1,92 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Query } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PathRest } from '@path/pathrest';
 
 import * as Parse from 'parse';
-import { Film } from '../interfaces/film';
-
+import { GraficService } from './grafic.service';
 
 @Injectable()
 export class StarService {
 
   url:string=PathRest.SERVERLOCALFILMS;
-  list:Film []=[];
+ 
   
-  constructor(private httpClient:HttpClient) { 
+  constructor(private httpClient:HttpClient,private graficService:GraficService) { 
     Parse.initialize(PathRest.IDBACK4APP,PathRest.KEYBACK4APP); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
     (Parse as any).serverURL = PathRest.SERVERBACK4APP; 
   }
-  async SendStar(id:string,stars:number[]){
 
-    /**Busco el filme que tenga el id del parámetro */
-    const FilmQuery= new Parse.Query("Films");
-    FilmQuery.equalTo("objectId",id);
+  /*Enviar las estrellas de un filme dado un nombre */
+  async SendStar(id:string,title:string,stars:number[]){
 
-    const resFilm=await FilmQuery.first();
+    var all:number[] = await this.GetByName(title);    
+    all=[...all,...stars];
+
+    const Films = new Parse.Object("Films");
+    Films.set('objectId',id );
+    Films.set("stars",all );
+   
+   try{    
+        let result = await Films.save();
+        this.graficService.changeGrafic(true);
+        alert('New object created with objectId: ' + result.id);
+    }
+    catch(error)
+    {
+        alert('Failed to create new object, with error code: ' );
+    }
+
+  } 
+
+
+  /**Devuelve un arreglo con todas las estrellas dado un id */
+  public async GetByName(title:string){
+          var allStars=[];
+          let film = null;
+        // Create Parse Query and get object by state_name
+        const filmObject = new Parse.Query("Films");
+        filmObject.equalTo("title", title);
+        try {
+          film = await filmObject.first();
+          allStars= await film!.get("stars");
+          return allStars;
+        } catch (error) {
+          console.log(`Failed to query object:`);
+          return allStars;
+        }
+   }
+ 
+  
+
+  /**Devuelve un arreglo de objetos con 
+   los nombres y la suma de las estrellas de cada filme 
+   para mostrar en la gráfica*/
+  async GetNamesAndAllAddStars(){
+    var list:any[]=[];
+    var all:any[]=[];
+
+    var films= new Parse.Query("Films");
+     
+      all=await films.findAll();
+      all.forEach(element => {
+        if(element.get("title") != undefined){
+          let name="";
+          let sumStar:number[];
+          sumStar= element.get("stars");
+          name= element.get("title");
     
-    /**Busco en la tabla estrellas la que tenga el id-films del del filme */
-    const StarsQuery= new Parse.Query("Stars");
-    StarsQuery.equalTo("id_films",resFilm);
-    const res=await StarsQuery.first();
-    res?.set("stars",stars);
-    try {
-      const result= await res!.save();
-      alert('New object created with objectId: ');
-      } catch(error) {
-          alert("'Failed to create new object, with error code: '");
-      }
-  } 
-
-
-  async GetById(id:string){
-
-          const FilmQuery= new Parse.Query("Films");
-          FilmQuery.equalTo("objectId",id);
-          const resFilm=await FilmQuery.first();
-          
-          const StarsQuery= new Parse.Query("Stars");
-          StarsQuery.equalTo("id_films",resFilm);
-          const res=await StarsQuery.first();
-
-          return res?.get("stars");
-  } 
-  async GetAllFilms(){
-
-    const FilmQuery= new Parse.Query("Films");
-      try {      
-        FilmQuery.each(async element => {
-          let suma=0;
-          var film:Film;
-          try {
-              film!.Title=await element.get("Title");
-              film!.stars=await element.get("stars");
-              this.list.push(film!);
-          } catch (error) {
-            alert("'Error al obtner datos para la gráfica'");
-          }
-        })
-      } catch (error) {
-        alert("'Error al obtner datos para la gráfica'");
-      }
-      return this.list;
+          let cant=0;
+          sumStar.forEach(item => {
+            cant+=item;
+          });
+          let film:any={
+            name:name,
+            value:cant
+          }      
+          list.push(film);       
+        }
+    })
+     return list;
   }
           
 } 

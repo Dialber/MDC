@@ -2,13 +2,15 @@
 :host{
     display: block;
     width: 100%;
-    border-radius: 2rem;    
     opacity: .9;
     overflow: hidden;
     margin-top: 2rem;
 }
 .hide{
     display: none;
+}
+.grafic{
+   width: 100%;
 }
 app-message{
     position: absolute;
@@ -83,6 +85,12 @@ app-message{
     }
     &:disabled{
         opacity: 40%;
+        &:active{
+            transform: scale(1);
+        }
+        &:hover,&:focus{
+            background-color:green;
+        }
     }
 }
 @media #{$tablets}{
