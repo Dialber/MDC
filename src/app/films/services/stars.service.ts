@@ -29,11 +29,10 @@ export class StarService {
    try{    
         let result = await Films.save();
         this.graficService.changeGrafic(true);
-        alert('New object created with objectId: ' + result.id);
     }
     catch(error)
     {
-        alert('Failed to create new object, with error code: ' );
+        alert('Problemas al enviar las estrellas' );
     }
 
   } 

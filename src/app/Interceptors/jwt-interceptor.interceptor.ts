@@ -35,7 +35,7 @@ export class JwtInterceptorInterceptor implements HttpInterceptor {
       }
     }
     else{
-      alert("error desconocido")
+      alert("Error desconocido")
     }
     return throwError(error)
   }
