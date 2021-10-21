@@ -20,7 +20,7 @@ export const environment = {
   
   },
     URLParseserver :'https://parseapi.back4app.com/',
-    idback4:'S0rtVlXTblWqTfeiYiPekH9KNzm3ylodJSIm9ywl',
-    jasvascriptKeyBack4:'5I39xBA7SMMuGVGqpCadPyOdC3L4JlhHClpykxf7'
+    idback4:'vecx8AngOTH7y1bubu4fzghpQ9Q6Xc20T96MFhov',
+    jasvascriptKeyBack4:'sSsXDuk8HOxRniMJYdWt6Dayj0UoSAyQn9q1tWjo'
   
 };

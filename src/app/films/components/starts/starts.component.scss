@@ -1,3 +1,4 @@
+@import"../../../../styles/variables";
 .listStart{
     margin-left: auto;
     margin-right: auto;
@@ -7,14 +8,17 @@
     padding: 1rem 1rem;
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
-    background-color: green;
+    background-color: $color-black;
    
 }
 .listStart__li{
     margin:0 .2rem;
+    &::before{
+        color: $color-white;
+    }
 }
 .bi{
-    cursor: pointer;
+    cursor: pointer;   
 }
 .bi-star,.bi-star-fill{
     font-size: 1.7rem;

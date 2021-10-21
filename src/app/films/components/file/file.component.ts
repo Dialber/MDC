@@ -53,43 +53,43 @@ export class FileComponent implements OnInit {
     let id:string="";
     switch (Title) {
       case "Wonder Woman":
-        id="AgyCfTWsWm";
+        id="gY3vGD7Zbi";
         break;
     
       case "Aquaman":
-        id="kiZT9vk2Ry";
+        id="0ObKyURAEG";
         break;
     
       case "Man of Steel":
-        id="MGWfkMnQ1B";
+        id="3OXlEwmOFd";
         break;
     
       case "The Suicide Squad":
-        id="qPxZCLMgCj";
+        id="9NHygKeRGr";
         break;
     
       case "Zack Snyder's Justice League":
-        id="azkTxmvQFE";
+        id="fyk85cJkTb";
         break;
     
       case "The Avengers":
-        id="RVNJyEiwjl";
+        id="Apnhf3urUf";
         break;
     
       case "Avengers: Infinity War":
-        id="CY2vCTSBHD";
+        id="gpmmNMURAv";
         break;
     
       case "Spider-Man: Homecoming":
-        id="PfLaVm0D22";
+        id="khKbBUofPn";
         break;
 
       case "Avengers: Endgame":
-        id="6OGeXHqXHC";
+        id="QqG7wJl9xx";
         break;
 
       case "Black Panther":
-        id="6erXRzjCDs"
+        id="LBWtFJV1tz"
         break;
     
       default:
