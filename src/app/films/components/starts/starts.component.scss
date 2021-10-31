@@ -13,18 +13,11 @@
 }
 .listStart__li{
     margin:0 .2rem;
-    &::before{
-        color: $color-white;
-    }
 }
 .bi{
-    cursor: pointer;   
-}
-.bi-star,.bi-star-fill{
+    cursor: pointer;  
+    color: $color-white;
     font-size: 1.7rem;
-}
-.bi-star-fill{
-    color: yellow;
 }
 .voted{
     cursor: auto;
@@ -35,7 +28,4 @@
         transform: scale(1.2);
         transition: transform .3s ease-in;
     }
-}
-.yellow{
-    color: yellow;
 }
